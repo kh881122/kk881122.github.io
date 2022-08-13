@@ -1,0 +1,163 @@
+/* animation */
+@keyframes order {
+    0%{
+        transform: translateY(0);
+    }
+    20%{
+        transform: translateY(-16.67%);
+    }
+    40%{
+        transform: translateY(-33.34%);
+    }
+    60%{
+        transform: translateY(-50.01%);
+    }
+    80%{
+        transform: translateY(-66.68%);
+    }
+    100%{
+        transform: translateY(-83.35%);
+    }
+}
+
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #111;
+    color: #999;
+}
+
+h1. h2, h3 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.portrait {
+    background-image: url(profile_img.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 16 / 9;
+}
+
+.profile{
+    padding: 5%;
+}
+
+.profile_header,
+.profile_section {
+    padding-bottom: 14%;
+}
+
+.profile_section > h2{
+    border-top: 3px solid;
+    color:#78dfff;
+    margin-bottom: 20px;
+    padding: 0.2em 0;
+}
+
+.name {
+    font-size: 40px;
+    line-height: 2;
+    font-style: italic;
+    margin-bottom: 30px;
+    font-family: 'Caveat', cursive;
+}
+
+.name_introduce {
+    display: inline-block;
+    color: white;
+    vertical-align: top;
+    height: 2em;
+    overflow: hidden;
+    padding-right: 0.5em;
+    position: relative; /* name_introduce */
+}
+
+/* 가상요소 after 앞 name_introduce 자식요소 개념 */
+.name_introduce::after{
+    content: ' ';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin-left: -1em;
+    box-shadow: inset 0 0 10px 10px #111; /* inset 안쪽 그림자 */
+}
+
+.name_introduce_list{
+    animation-name: order;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+}
+
+.name_title{
+    font-size: 1.1em;
+    line-height: 0.9;
+    color: #78dfff;
+    position: relative;
+}
+
+.timeline{
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.timeline > li{
+    padding-bottom: 30px;
+}
+
+.timeline > li > h3{
+    color: red;
+    float: left;
+    letter-spacing: 0.2em;
+    padding-top: 0.2em;
+    font-size: 1rem;
+    margin-top: 0.1em;
+    margin-right: 0.5em;
+    border-top: 3px solid;
+}
+
+.timeline > li > p{
+    float: left;
+}
+
+.timeline > li:last-child{
+    padding-bottom: 0px;
+}
+
+
+@media ( min-width:768px){
+    .portrait {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 60vw;
+        height: 100vh;
+        padding: 0;
+    }
+
+    .profile_header{
+        margin-left: 60vw;
+    }
+    .profile_section{
+        margin-left: 60vw;
+    }
+    .name{
+        font-size: 4vw;
+    }
+}

@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+  :root {
+    --primary-color: #6CD9CE;
+    --secondary-color: #78dfff;;
+  }
+  
+.container_projects {
+    /*min-height: 100vh;*/
+    position: relative;
+    width: 100vw;
+    display: flex;
+    /*align-items: center;*/
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
+}
+  
+.animation_career {
+    transform: translateY(-600px);
+    animation: 1.2s slideIn ease-in-out forwards 1s;
+    z-index: 10;
+    opacity: 0;
+    position: relative;
+}
+  
+.animation_career::before {
+      content: '';
+      width: 0%;
+      height: 76px;
+      background-color: var(--secondary-color);
+      /*position: absolute;*/
+      bottom: -10px;
+      animation: 1s underline ease-in-out forwards 2s;
+      mix-blend-mode: screen;
+}
+  
+.overlay {
+      position: absolute;
+      width: 5px;
+      max-height: inherit;
+      top: 0;
+      bottom: 0;
+      opacity: 0;
+      left: 0;
+      right: 0;
+      background-size: cover;
+      background-color: var(--secondary-color);
+      transform: scale(0.5);
+      animation: .5s slideIn ease-in-out forwards, 1s skewBg ease-in-out;
+  }
+  
+@keyframes skewBg {
+    0% {
+      transform: scale(0.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+  
+@keyframes underline {
+    100% {
+      width: 100%;
+    }
+}
+  
+@keyframes slideIn {
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+}
+
+/* 타임라인 슬라이드인 */
+
+/*body{
+    text-align:center;
+    background:linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%);
+    color:#555;
+    font-family:'Roboto';
+    font-weight:300;
+    font-size:32px;
+    padding-top:40vh;
+    height:100vh;
+    overflow:hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -webkit-transform: translate3d(0,0,0);
+}*/
+    
+.animation_slidein{
+      display:inline-block;
+      overflow:hidden;
+      white-space:nowrap;
+}
+    
+.animation_slidein:first-of-type{    /* For increasing performance 
+                           ID/Class should've been used. 
+                           For a small demo 
+                           it's okaish for now */
+    animation: showup 7s infinite;
+}
+    
+.animation_slidein:last-of-type {
+    width:0px;
+    animation: reveal 7s infinite;
+}
+    
+.animation_slidein:last-of-type span {
+      margin-left:-355px;
+      animation: slidein 7s infinite;
+}
+    
+@keyframes showup {
+        0% {opacity:0;}
+        20% {opacity:1;}
+        80% {opacity:1;}
+        100% {opacity:0;}
+}
+    
+@keyframes slidein {
+        0% { margin-left:-800px; }
+        20% { margin-left:-800px; }
+        35% { margin-left:0px; }
+        100% { margin-left:0px; }
+}
+    
+@keyframes reveal {
+        0% {opacity:0;width:0px;}
+        20% {opacity:1;width:0px;}
+        30% {width:355px;}
+        80% {opacity:1;}
+        100% {opacity:0;width:355px;}
+}
+
+/*그래프 로딩*/
+
+.graph_loding {
+	color: #100f10;
+	font-size: 14vw;
+	position: relative;
+	text-transform: uppercase;
+	-webkit-text-stroke: 0.3vw #f7f7fe;
+}
+
+.graph_loding::before {
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 100%;
+	/*color: #37b9f1;*/
+    background: rgb(0,212,255);
+    background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(53,187,190,1) 50%, rgba(51,127,204,1) 100%);
+	overflow: hidden;
+	position: absolute;
+	content: attr(data-text);
+	border-right: 2px solid rgb(0,212,255);/*#37b9f1*/
+	-webkit-text-stroke: 0vw #f7f7fe;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+	animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+	0%,
+	10%,
+	100% {
+		width: 0;
+	}
+
+	70%,
+	90% {
+		width: 100%;
+	}
+}
+
+@media ( min-width:768px){
+    /*.timeline {
+        margin: 0 -10px;
+    }
+    .timeline > li{
+        width: 50%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+    .timeline > li:nth-child(even){
+        margin-left: auto;
+        margin-top: -120px;
+        margin-bottom: -120px;
+    }*/
+    .animation_slidein{
+        font-size: 1.35vw;
+    }
+    
+    .graph_loding{
+        font-size: 4.65vw;
+    }
+    .container_projects{
+        width: 27.5vw;
+    }
+}
